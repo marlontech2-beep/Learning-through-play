@@ -259,24 +259,24 @@ function StageCoverItem({
 
 const FAQS = [
   {
-    q: "Como recebo o material?",
-    a: "Assim que o pagamento é confirmado, és redirecionado automaticamente para a página do produto — o acesso é imediato, sem esperas.",
+    q: "How do I receive the material?",
+    a: "As soon as your payment is confirmed, you receive access directly by email — access is immediate, with no waiting.",
   },
   {
-    q: "Como pago na África do Sul?",
-    a: "Aceitamos os métodos de pagamento mais usados na África do Sul: Cartão ZAR, EFT, Capitec Pay, QR Code e Apple Pay. Escolhes o que preferires na página de pagamento e o acesso é liberado assim que o pagamento for confirmado.",
+    q: "How do I pay in South Africa?",
+    a: "We accept the most common payment methods in South Africa: ZAR Card, EFT, Capitec Pay, QR Code and Apple Pay. Choose your preferred option on the checkout page and your access is released as soon as payment is confirmed.",
   },
   {
-    q: "Quanto tempo demora a receber?",
-    a: "O acesso é instantâneo. Assim que o pagamento for confirmado, és redirecionado directamente para o material — não precisas esperar nada nem verificar e-mails.",
+    q: "How long does delivery take?",
+    a: "Access is instant. As soon as your payment is confirmed, you are directed straight to the workbooks and receive access by email — you don't have to wait around.",
   },
   {
-    q: "O material é para crianças que ainda não sabem nada ou que já sabem um pouco?",
-    a: "Serve para os dois casos. O material começa do zero (traçado de letras, reconhecimento de sons) e avança progressivamente — funciona tanto para crianças que estão a começar como para as que já sabem um pouco mas precisam melhorar a letra e a leitura.",
+    q: "Is the material for children who know nothing yet?",
+    a: "Yes. It starts with the very first letters and moves step by step to the first words, so it works for complete beginners.",
   },
   {
-    q: "Quantas vezes tenho de pagar?",
-    a: "Apenas uma vez. Pagas uma única vez e o acesso ao material é teu para sempre — sem mensalidades, sem taxas adicionais.",
+    q: "How many times do I have to pay?",
+    a: "Only once. You make a single one-time payment and the material is yours for life — no monthly fees, no extra charges.",
   },
 ];
 
@@ -291,7 +291,7 @@ const PACKAGES_CORE = [
   },
   {
     nome: "Stage 3: Reading.",
-    descricao: "Reading Words: Level 1 and Common English Words (Sight Words).",
+    descricao: "Reading Words: Level 1, Common English Words (Sight Words) and Learn to Write.",
   },
 ];
 
@@ -376,19 +376,16 @@ export default function App() {
         <div className="pointer-events-none absolute inset-0 text-white/10 dot-pattern"></div>
         <div className="relative mx-auto max-w-3xl">
           <span className="inline-block rounded-full bg-white/15 px-4 py-2 text-xs font-bold tracking-widest uppercase">
-            Coleção Letrinha
+            LEARNING THROUGH PLAY METHOD
           </span>
           <h1 className="mt-6 text-4xl leading-tight font-extrabold sm:text-5xl">
-            A Coleção que Ensina sua Criança a Ler, Escrever e Ter uma Letra
-            Bonita — Passo a Passo, do Zero
+            Help your child learn to read and write in English, through play
           </h1>
           <p className="mt-5 text-lg font-bold text-lime-soft">
-            Atividades completas para crianças do 1º ao 9º ano
+            7 printable workbooks in 3 simple stages, from the first letters to the first words.
           </p>
           <p className="mx-auto mt-3 max-w-xl text-lg text-white/95">
-            São <strong className="text-lime-soft">+400 páginas</strong> com
-            tudo que o seu pequeno(a) precisa para escrever com mais rapidez e
-            eficiência.
+            Fun, colourful activities that follow your child's pace.
           </p>
 
           <div className="mt-8">
@@ -424,7 +421,7 @@ export default function App() {
               onClick={handleScrollToPackages}
               className="btn-3d active:btn-3d-active"
             >
-              Adquirir Agora!
+              Get Yours Now!
             </a>
           </div>
         </div>
@@ -518,21 +515,21 @@ export default function App() {
       </section>
 
       {/* ========================================================
-          SECTION 3: BENEFÍCIOS
+          SECTION 3: BENEFITS
           ======================================================== */}
       <section className="bg-background px-4 py-16">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-serif text-4xl font-bold text-teal italic sm:text-5xl">
-            Benefícios
+            Benefits
           </h2>
           <div className="section-rule bg-lime"></div>
           <ul className="mt-10 space-y-4">
             {[
-              "Escrita mais rápida e legível",
-              "Aumento da concentração e foco",
-              "Acelera o desenvolvimento da coordenação motora",
-              "Melhor capacidade de raciocínio",
-              "Ajuda no desenvolvimento da fala",
+              "Helps your child recognise every letter of the alphabet",
+              "Connects each letter to its sound",
+              "Builds hand control and fine motor coordination",
+              "Improves concentration and focus through play",
+              "Supports the first steps in reading, from simple words to common English words",
             ].map((beneficio) => (
               <li
                 key={beneficio}
@@ -630,7 +627,7 @@ export default function App() {
           <div className="mt-10">
             <div className="mx-auto w-full max-w-md rounded-2xl border border-destructive/20 bg-destructive/5 px-6 py-5">
               <p className="text-center text-sm font-bold tracking-wide text-destructive uppercase">
-                ⏰ Oferta termina em
+                ⏰ OFFER ENDS IN
               </p>
               <div className="mt-3 flex items-center justify-center gap-2">
                 <div className="flex items-center gap-2">
@@ -639,7 +636,7 @@ export default function App() {
                       {pad(hours)}
                     </div>
                     <div className="mt-1 text-[11px] font-semibold tracking-wide text-muted-foreground uppercase">
-                      Horas
+                      Hours
                     </div>
                   </div>
                 </div>
@@ -663,7 +660,7 @@ export default function App() {
                       {pad(seconds)}
                     </div>
                     <div className="mt-1 text-[11px] font-semibold tracking-wide text-muted-foreground uppercase">
-                      Seg
+                      Sec
                     </div>
                   </div>
                 </div>
@@ -677,7 +674,7 @@ export default function App() {
               onClick={handleScrollToPackages}
               className="btn-3d active:btn-3d-active"
             >
-              Adquirir Agora!
+              Get Yours Now!
             </a>
           </div>
         </div>
@@ -818,12 +815,12 @@ export default function App() {
       </section>
 
       {/* ========================================================
-          SECTION 6: COMO FUNCIONA?
+          SECTION 6: HOW IT WORKS
           ======================================================== */}
       <section className="bg-background px-4 py-16">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center text-3xl font-extrabold text-ink sm:text-4xl">
-            Como Funciona?
+            How It Works
           </h2>
           <div className="section-rule bg-orange"></div>
 
@@ -834,14 +831,14 @@ export default function App() {
               </span>
               <div>
                 <p className="text-xs font-bold tracking-widest text-orange uppercase">
-                  Passo 1
+                  Step 1
                 </p>
                 <h3 className="mt-1 text-xl font-bold text-ink">
-                  Baixe as atividades
+                  Download your workbooks
                 </h3>
                 <p className="mt-1 text-muted-foreground">
-                  Baixe para o seu PC ou celular. Você pode imprimir quantas
-                  vezes desejar.
+                  After your purchase, you receive access by email. Download the
+                  PDFs to your phone or computer.
                 </p>
               </div>
             </div>
@@ -852,14 +849,14 @@ export default function App() {
               </span>
               <div>
                 <p className="text-xs font-bold tracking-widest text-orange uppercase">
-                  Passo 2
+                  Step 2
                 </p>
                 <h3 className="mt-1 text-xl font-bold text-ink">
-                  Realizar as atividades
+                  Print and practise together
                 </h3>
                 <p className="mt-1 text-muted-foreground">
-                  Mão na massa. A hora de realizá-las com o seu pequeno(a) fica
-                  divertida — faça as atividades no seu tempo.
+                  Print on A4 as many times as you like and follow the stages
+                  in order.
                 </p>
               </div>
             </div>
@@ -875,7 +872,7 @@ export default function App() {
         <div className="relative mx-auto max-w-4xl">
           <div className="flex justify-center">
             <span className="rounded-full bg-lime px-6 py-3 text-sm font-extrabold tracking-widest text-white uppercase shadow-md">
-              ESCOLHA O PACOTE IDEAL
+              CHOOSE THE RIGHT PACKAGE
             </span>
           </div>
 
@@ -940,7 +937,7 @@ export default function App() {
               className="relative z-10 flex h-full flex-col rounded-2xl border-[3px] border-green-check bg-card p-6 shadow-[0_0_45px_-8px_color-mix(in_oklab,var(--green-check)_55%,transparent)] sm:order-2 sm:scale-[1.04]"
             >
               <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-lime px-4 py-1 text-[11px] font-extrabold tracking-widest text-white uppercase shadow-md">
-                Most Chosen
+                MOST CHOSEN
               </span>
               <h3 className="text-center text-2xl font-extrabold text-ink">
                 Premium Package
@@ -1016,12 +1013,12 @@ export default function App() {
       </section>
 
       {/* ========================================================
-          SECTION 8: PERGUNTAS FREQUENTES (FAQ)
+          SECTION 8: FREQUENTLY ASKED QUESTIONS (FAQ)
           ======================================================== */}
       <section className="bg-background px-4 py-16">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center text-3xl font-extrabold text-ink sm:text-4xl">
-            Perguntas Frequentes
+            Frequently Asked Questions
           </h2>
           <div className="section-rule bg-teal"></div>
 
@@ -1063,20 +1060,26 @@ export default function App() {
       </section>
 
       {/* ========================================================
-          SECTION 9: GARANTIA & ACESSO IMEDIATO
+          SECTION 9: GUARANTEE & IMMEDIATE ACCESS
           ======================================================== */}
       <section className="bg-background px-4 pb-20">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">
-            O pagamento é único? Tenho garantia?
+            Is it a one-time payment? Do I have a guarantee?
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground">
-            Sim! O pagamento é único e você ainda tem{" "}
+            Yes! It is a one-time payment and you have a{" "}
             <strong className="text-ink">
-              7 dias de garantia incondicional
+              7-day unconditional guarantee
             </strong>
-            . Se por qualquer motivo não estiver satisfeito(a), basta enviar uma
-            mensagem e devolvemos 100% do valor — sem perguntas.
+            . If for any reason you are not satisfied, simply send an email to{" "}
+            <a
+              href="mailto:brincandoaprender15@gmail.com"
+              className="underline font-medium text-ink"
+            >
+              brincandoaprender15@gmail.com
+            </a>{" "}
+            and we will refund 100% of your money — no questions asked.
           </p>
 
           <div className="mt-10 flex justify-center">
@@ -1085,26 +1088,26 @@ export default function App() {
                 7
               </span>
               <span className="mt-2 text-xs font-bold tracking-widest uppercase">
-                Dias de
+                Days
               </span>
               <span className="text-xl font-extrabold tracking-wide uppercase">
-                Garantia
+                Guarantee
               </span>
             </div>
           </div>
 
           <h3 className="mt-12 text-2xl font-extrabold text-ink sm:text-3xl">
-            Em quanto tempo eu irei receber meu acesso?
+            How quickly will I receive my access?
           </h3>
-          <p className="mt-4 text-lg font-bold text-teal">IMEDIATAMENTE...</p>
+          <p className="mt-4 text-lg font-bold text-teal">IMMEDIATELY...</p>
           <p className="mt-2 text-muted-foreground">
-            Logo após a confirmação do pagamento, você receberá o acesso
-            completo a todos os materiais.
+            Right after payment confirmation, you will receive full access to
+            all your workbooks by email.
           </p>
 
           <img
             src="/assets/banner-colecao.png"
-            alt="Coleção Letrinha - Banner da coleção de cadernos de atividades"
+            alt="Learning Through Play Method - Workbooks collection banner"
             loading="lazy"
             className="mt-8 w-full rounded-xl shadow-lg"
           />
@@ -1115,7 +1118,7 @@ export default function App() {
               onClick={handleScrollToPackages}
               className="btn-3d active:btn-3d-active"
             >
-              Adquirir Agora!
+              Get Yours Now!
             </a>
           </div>
         </div>
@@ -1125,7 +1128,7 @@ export default function App() {
           FOOTER
           ======================================================== */}
       <footer className="bg-ink px-4 py-6 text-center text-sm text-white/80">
-        © 2026 Letrinha — Todos os direitos reservados
+        © 2026 Learning Through Play Method — All rights reserved
       </footer>
 
       {/* ========================================================
@@ -1136,7 +1139,7 @@ export default function App() {
         onClick={handleScrollToPackages}
         className="fixed right-4 bottom-4 left-4 z-50 mx-auto flex max-w-md items-center justify-center rounded-xl bg-lime px-6 py-4 text-base font-extrabold tracking-wide text-white uppercase shadow-[0_6px_0_0_var(--lime-dark),0_12px_24px_-8px_rgb(0_0_0/0.35)] transition-transform duration-150 active:translate-y-[3px]"
       >
-        Adquirir Agora
+        Get Yours Now
       </a>
     </main>
   );

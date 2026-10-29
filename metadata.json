@@ -1,6 +1,6 @@
 {
-  "name": "Coleção Letrinha",
-  "description": "Mais de 400 páginas de atividades em PDF para crianças do 1º ao 9º ano: letra cursiva, leitura, coordenação motora. Pagamento único.",
+  "name": "Learning Through Play Method",
+  "description": "7 printable workbooks in 3 simple stages to help your child go from the first letters to the first words in English. One-time payment.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

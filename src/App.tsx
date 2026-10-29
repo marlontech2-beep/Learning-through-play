@@ -187,6 +187,9 @@ const BONUSES_LIST = [
   "Reward Chart",
 ];
 
+const BASIC_CHECKOUT_URL = "https://checkout.escalepay.com/2752817";
+const PREMIUM_CHECKOUT_URL = "https://checkout.escalepay.com/9382075";
+
 const ROTATIONS = ["-2deg", "0deg", "2deg"];
 
 export default function App() {
@@ -195,6 +198,22 @@ export default function App() {
 
   // Countdown timer: 2 hours (7200 seconds)
   const [timeLeft, setTimeLeft] = useState(7200);
+
+  const handleScrollToPackages = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      const premiumCard = document.getElementById("pacote-premium");
+      if (premiumCard) {
+        premiumCard.scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+    }
+    const packagesSection = document.getElementById("pacotes");
+    if (packagesSection) {
+      packagesSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -284,7 +303,11 @@ export default function App() {
           </div>
 
           <div className="mt-8 flex justify-center">
-            <a href="#pacotes" className="btn-3d active:btn-3d-active">
+            <a
+              href="#pacotes"
+              onClick={handleScrollToPackages}
+              className="btn-3d active:btn-3d-active"
+            >
               Adquirir Agora!
             </a>
           </div>
@@ -367,7 +390,11 @@ export default function App() {
           </div>
 
           <div className="mt-8 flex justify-center">
-            <a href="#pacotes" className="btn-3d active:btn-3d-active">
+            <a
+              href="#pacotes"
+              onClick={handleScrollToPackages}
+              className="btn-3d active:btn-3d-active"
+            >
               See the packages
             </a>
           </div>
@@ -529,7 +556,11 @@ export default function App() {
           </div>
 
           <div className="mt-8 flex justify-center">
-            <a href="#pacotes" className="btn-3d active:btn-3d-active">
+            <a
+              href="#pacotes"
+              onClick={handleScrollToPackages}
+              className="btn-3d active:btn-3d-active"
+            >
               Adquirir Agora!
             </a>
           </div>
@@ -713,7 +744,7 @@ export default function App() {
 
               <div className="mt-8 flex justify-center">
                 <a
-                  href="https://checkout.escalepay.com/2752817"
+                  href={BASIC_CHECKOUT_URL}
                   className="inline-flex w-full max-w-md items-center justify-center rounded-[calc(var(--radius)+4px)] border-2 border-green-check bg-card px-8 py-4 text-base font-extrabold tracking-wide text-green-check uppercase transition-transform duration-150 active:translate-y-[2px]"
                 >
                   I Want the Basic Package
@@ -722,7 +753,10 @@ export default function App() {
             </article>
 
             {/* Premium Package */}
-            <article className="relative z-10 flex h-full flex-col rounded-2xl border-[3px] border-green-check bg-card p-6 shadow-[0_0_45px_-8px_color-mix(in_oklab,var(--green-check)_55%,transparent)] sm:order-2 sm:scale-[1.04]">
+            <article
+              id="pacote-premium"
+              className="relative z-10 flex h-full flex-col rounded-2xl border-[3px] border-green-check bg-card p-6 shadow-[0_0_45px_-8px_color-mix(in_oklab,var(--green-check)_55%,transparent)] sm:order-2 sm:scale-[1.04]"
+            >
               <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-lime px-4 py-1 text-[11px] font-extrabold tracking-widest text-white uppercase shadow-md">
                 Most Chosen
               </span>
@@ -788,7 +822,7 @@ export default function App() {
 
               <div className="mt-8 flex justify-center">
                 <a
-                  href="https://checkout.escalepay.com/9382075"
+                  href={PREMIUM_CHECKOUT_URL}
                   className="inline-flex w-full max-w-md items-center justify-center rounded-[calc(var(--radius)+4px)] bg-green-check px-8 py-5 text-lg font-extrabold tracking-wide text-white uppercase shadow-[0_6px_0_0_color-mix(in_oklab,var(--green-check)_68%,black),0_12px_24px_-8px_rgb(0_0_0/0.35)] transition-transform duration-150 active:translate-y-[3px] [text-shadow:0_1px_2px_rgb(0_0_0/0.2)]"
                 >
                   I Want the Premium Package
@@ -894,7 +928,11 @@ export default function App() {
           />
 
           <div className="mt-8 flex justify-center">
-            <a href="#pacotes" className="btn-3d active:btn-3d-active">
+            <a
+              href="#pacotes"
+              onClick={handleScrollToPackages}
+              className="btn-3d active:btn-3d-active"
+            >
               Adquirir Agora!
             </a>
           </div>
@@ -913,6 +951,7 @@ export default function App() {
           ======================================================== */}
       <a
         href="#pacotes"
+        onClick={handleScrollToPackages}
         className="fixed right-4 bottom-4 left-4 z-50 mx-auto flex max-w-md items-center justify-center rounded-xl bg-lime px-6 py-4 text-base font-extrabold tracking-wide text-white uppercase shadow-[0_6px_0_0_var(--lime-dark),0_12px_24px_-8px_rgb(0_0_0/0.35)] transition-transform duration-150 active:translate-y-[3px]"
       >
         Adquirir Agora

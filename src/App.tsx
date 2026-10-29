@@ -109,37 +109,153 @@ const WORKBOOK_STAGES: WorkbookStage[] = [
   },
 ];
 
-const EBOOKS = [
+interface WorkbookItem {
+  number: string;
+  name: string;
+  caption: string;
+  src: string;
+  alt: string;
+}
+
+interface StageContent {
+  stageNumber: number;
+  stageName: string;
+  color: string;
+  bgLight: string;
+  borderColor: string;
+  description: string;
+  maxCoverWidthDesktop: string;
+  workbooks: WorkbookItem[];
+}
+
+const WHAT_INSIDE_STAGES: StageContent[] = [
   {
-    numero: "1. Frases Cursivas",
-    descricao: "Atividades para formar a mão e escrever com mais ritmo e fluidez.",
-    capa: "/assets/producao-frases.png",
-    alt: "Capa do ebook Frases Cursivas",
-    capaBg: "bg-red-pop",
+    stageNumber: 1,
+    stageName: "Stage 1: Letters",
+    color: "#1E5AD6",
+    bgLight: "rgba(30, 90, 214, 0.05)",
+    borderColor: "rgba(30, 90, 214, 0.14)",
+    description: "Get to know every letter of the alphabet.",
+    maxCoverWidthDesktop: "180px",
+    workbooks: [
+      {
+        number: "01",
+        name: "Letter Recognition",
+        caption: "01 Letter Recognition",
+        src: "/assets/aistudio/cover-01-letter-recognition_6e2106f8.webp",
+        alt: "Cover of the Letter Recognition workbook",
+      },
+      {
+        number: "02",
+        name: "Alphabet Activities",
+        caption: "02 Alphabet Activities",
+        src: "/assets/aistudio/cover-02-alphabet-activities_ebf9a697.webp",
+        alt: "Cover of the Alphabet Activities workbook",
+      },
+    ],
   },
   {
-    numero: "2. Produção de Frases",
-    descricao: "Estimula a imaginação e o vocabulário de forma criativa.",
-    capa: "/assets/silabario-cursivo.png",
-    alt: "Capa do ebook Produção de Frases",
-    capaBg: "bg-blue-pop",
+    stageNumber: 2,
+    stageName: "Stage 2: Writing and Sounds",
+    color: "#6A2FC4",
+    bgLight: "rgba(106, 47, 196, 0.05)",
+    borderColor: "rgba(106, 47, 196, 0.14)",
+    description: "Write the letters and connect each one to its sound.",
+    maxCoverWidthDesktop: "180px",
+    workbooks: [
+      {
+        number: "03",
+        name: "Trace and Write",
+        caption: "03 Trace and Write",
+        src: "/assets/aistudio/cover-03-trace-and-write_cd4ad1d0.webp",
+        alt: "Cover of the Trace and Write workbook",
+      },
+      {
+        number: "04",
+        name: "Beginning Sounds",
+        caption: "04 Beginning Sounds",
+        src: "/assets/aistudio/cover-04-beginning-sounds_79f66e48.webp",
+        alt: "Cover of the Beginning Sounds workbook",
+      },
+    ],
   },
   {
-    numero: "3. Coordenação Motora",
-    descricao:
-      "Fortalece os músculos das mãos e dedos, essenciais para uma escrita firme e bonita.",
-    capa: "/assets/coordenacao-motora.png",
-    alt: "Capa do ebook Coordenação Motora",
-    capaBg: "bg-yellow",
-  },
-  {
-    numero: "4. Silabário Cursivo",
-    descricao: "Desenvolve a leitura e a escrita com mais segurança.",
-    capa: "/assets/frases-cursivas.png",
-    alt: "Capa do ebook Silabário Cursivo",
-    capaBg: "bg-peach",
+    stageNumber: 3,
+    stageName: "Stage 3: Reading",
+    color: "#2EB872",
+    bgLight: "rgba(46, 184, 114, 0.05)",
+    borderColor: "rgba(46, 184, 114, 0.14)",
+    description: "Read the first words and practise writing them.",
+    maxCoverWidthDesktop: "160px",
+    workbooks: [
+      {
+        number: "05",
+        name: "Reading Words: Level 1",
+        caption: "05 Reading Words: Level 1",
+        src: "/assets/aistudio/cover-05-reading-words-level-1_7fe2bf15.webp",
+        alt: "Cover of the Reading Words: Level 1 workbook",
+      },
+      {
+        number: "06",
+        name: "Sight Words",
+        caption: "06 Sight Words",
+        src: "/assets/aistudio/cover-06-sight-words_574cfe05.webp",
+        alt: "Cover of the Sight Words workbook",
+      },
+      {
+        number: "07",
+        name: "Learn to Write",
+        caption: "07 Learn to Write",
+        src: "/assets/aistudio/cover-07-learn-to-write_3a0ee2fb.webp",
+        alt: "Cover of the Learn to Write workbook",
+      },
+    ],
   },
 ];
+
+function StageCoverItem({
+  workbook,
+  stageColor,
+  maxDesktopWidth,
+}: {
+  workbook: WorkbookItem;
+  stageColor: string;
+  maxDesktopWidth: string;
+}) {
+  const [loadError, setLoadError] = useState(false);
+
+  return (
+    <div
+      className="flex flex-col items-center flex-1 min-w-0"
+      style={{ maxWidth: maxDesktopWidth }}
+    >
+      <div className="w-full aspect-[3/4] relative rounded-xl overflow-hidden shadow-md border-2 border-white bg-white flex items-center justify-center transition-transform duration-200 hover:scale-[1.02]">
+        {!loadError ? (
+          <img
+            src={workbook.src}
+            alt={workbook.alt}
+            loading="lazy"
+            onError={() => setLoadError(true)}
+            className="w-full h-full object-contain"
+          />
+        ) : (
+          <div
+            className="w-full h-full flex flex-col items-center justify-center p-3 text-white font-extrabold"
+            style={{ backgroundColor: stageColor }}
+          >
+            <span className="text-2xl">{workbook.number}</span>
+            <span className="text-[11px] text-center mt-1 text-white/90">
+              {workbook.name}
+            </span>
+          </div>
+        )}
+      </div>
+      <p className="mt-2 text-center text-[11px] sm:text-[13px] font-semibold text-ink/80 leading-tight">
+        {workbook.caption}
+      </p>
+    </div>
+  );
+}
 
 const FAQS = [
   {
@@ -594,43 +710,109 @@ export default function App() {
       )}
 
       {/* ========================================================
-          SECTION 5: CONTEÚDO
+          SECTION 5: WHAT'S INSIDE (BY STAGE)
           ======================================================== */}
-      <section className="bg-yellow px-4 py-16">
+      <section className="bg-background px-4 py-16">
         <div className="mx-auto max-w-4xl">
-          <h2 className="text-center text-4xl font-extrabold text-white sm:text-5xl">
-            Conteúdo
+          <h2 className="text-center text-3xl font-extrabold text-ink sm:text-4xl md:text-5xl">
+            What's inside
           </h2>
-          <div className="section-rule bg-white"></div>
-          <p className="mx-auto mt-5 max-w-xl text-center text-lg text-white">
-            4 cadernos digitais, prontos para imprimir e usar em casa ou na sala
-            de aula.
+          <div className="section-rule bg-lime"></div>
+          <p className="mx-auto mt-4 max-w-xl text-center text-base sm:text-lg text-muted-foreground">
+            7 workbooks in 3 stages, from the first letters to the first words.
           </p>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {EBOOKS.map((ebook) => (
-              <article
-                key={ebook.numero}
-                className="overflow-hidden rounded-2xl bg-card shadow-lg"
+          <div className="mt-12 space-y-8 sm:space-y-10">
+            {WHAT_INSIDE_STAGES.map((stage) => (
+              <div
+                key={stage.stageNumber}
+                className="mx-auto max-w-[900px] rounded-2xl sm:rounded-3xl p-5 sm:p-7 border transition-all duration-300"
+                style={{
+                  backgroundColor: stage.bgLight,
+                  borderColor: stage.borderColor,
+                }}
               >
-                <div
-                  className={`flex items-center justify-center p-6 ${ebook.capaBg}`}
-                >
-                  <img
-                    src={ebook.capa}
-                    alt={ebook.alt}
-                    loading="lazy"
-                    className="h-64 object-contain transition-transform hover:scale-105 duration-200"
-                  />
+                {/* Stage Header */}
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <span
+                    className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full text-base sm:text-lg font-extrabold text-white shadow-sm"
+                    style={{ backgroundColor: stage.color }}
+                  >
+                    {stage.stageNumber}
+                  </span>
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-extrabold text-ink leading-snug">
+                      {stage.stageName}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
+                      {stage.description}
+                    </p>
+                  </div>
                 </div>
-                <div className="p-5">
-                  <h3 className="text-lg font-bold text-ink">{ebook.numero}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    {ebook.descricao}
-                  </p>
+
+                {/* Covers Row: all in one row without horizontal scroll */}
+                <div className="mt-6 flex justify-center gap-2.5 sm:gap-6 w-full">
+                  {stage.workbooks.map((wb) => (
+                    <StageCoverItem
+                      key={wb.number}
+                      workbook={wb}
+                      stageColor={stage.color}
+                      maxDesktopWidth={stage.maxCoverWidthDesktop}
+                    />
+                  ))}
                 </div>
-              </article>
+              </div>
             ))}
+
+            {/* BONUS BLOCK */}
+            <div
+              className="mx-auto max-w-[900px] rounded-2xl sm:rounded-3xl p-6 sm:p-8 border"
+              style={{
+                backgroundColor: "rgba(255, 138, 43, 0.1)",
+                borderColor: "rgba(255, 138, 43, 0.35)",
+              }}
+            >
+              <div className="flex items-center gap-2">
+                <span className="rounded-full bg-amber-500/20 border border-amber-600/30 px-3 py-0.5 text-xs font-extrabold tracking-widest text-amber-700 uppercase">
+                  PREMIUM
+                </span>
+              </div>
+              <h3 className="mt-3 text-xl sm:text-2xl font-extrabold text-ink">
+                Plus 5 bonuses with the Premium package
+              </h3>
+
+              <ul className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                {BONUSES_LIST.map((bonus) => (
+                  <li
+                    key={bonus}
+                    className="flex items-center gap-2.5 text-sm sm:text-base font-semibold text-ink"
+                  >
+                    <span
+                      className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
+                      style={{ backgroundColor: "rgba(255, 138, 43, 0.2)" }}
+                    >
+                      <Check
+                        className="h-3.5 w-3.5"
+                        style={{ color: "#FF8A2B" }}
+                        strokeWidth={3}
+                      />
+                    </span>
+                    {bonus}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8 flex justify-center">
+                <a
+                  href="#pacotes"
+                  onClick={handleScrollToPackages}
+                  className="btn-3d active:btn-3d-active text-center"
+                  style={{ maxWidth: "32rem" }}
+                >
+                  Get the bonuses with Premium: only R30 more
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

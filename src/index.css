@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(100% 0 0);
+  --foreground: oklch(21% 0.034 264);
+  --card: oklch(100% 0 0);
+  --card-foreground: oklch(21% 0.034 264);
+  --popover: oklch(100% 0 0);
+  --popover-foreground: oklch(21% 0.034 264);
+  --primary: oklch(21% 0.034 264);
+  --primary-foreground: oklch(100% 0 0);
+  --secondary: oklch(97.5% 0.004 247.9);
+  --secondary-foreground: oklch(21% 0.034 264);
+  --muted: oklch(97.5% 0.004 247.9);
+  --muted-foreground: oklch(50% 0.025 257);
+  --accent: oklch(97.5% 0.004 247.9);
+  --accent-foreground: oklch(21% 0.034 264);
+  --destructive: oklch(61% 0.235 27);
+  --destructive-foreground: oklch(100% 0 0);
+  --border: oklch(92.9% 0.013 255.508);
+  --input: oklch(92.9% 0.013 255.508);
+  --ring: oklch(58% 0.107 183.5);
+  --teal: oklch(58% 0.107 183.5);
+  --lime: oklch(76% 0.212 131);
+  --lime-dark: oklch(63% 0.174 131);
+  --lime-soft: oklch(90% 0.19 122);
+  --ink: oklch(21% 0.034 264);
+  --navy: oklch(34% 0.055 258);
+  --yellow: oklch(83% 0.166 82);
+  --red-pop: oklch(61% 0.235 27);
+  --blue-pop: oklch(74% 0.152 226);
+  --peach: oklch(83% 0.09 62);
+  --orange: oklch(68% 0.213 42);
+  --orange-light: oklch(73% 0.184 52);
+  --green-check: oklch(65% 0.18 148);
+}
+
+@theme {
+  --color-teal: var(--teal);
+  --color-lime: var(--lime);
+  --color-lime-dark: var(--lime-dark);
+  --color-lime-soft: var(--lime-soft);
+  --color-ink: var(--ink);
+  --color-navy: var(--navy);
+  --color-yellow: var(--yellow);
+  --color-red-pop: var(--red-pop);
+  --color-blue-pop: var(--blue-pop);
+  --color-peach: var(--peach);
+  --color-orange: var(--orange);
+  --color-orange-light: var(--orange-light);
+  --color-green-check: var(--green-check);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif;
+}
+
+.btn-3d {
+  border-radius: calc(var(--radius) + 4px);
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  background-color: var(--lime);
+  color: #fff;
+  width: 100%;
+  max-width: 28rem;
+  box-shadow: 0 6px 0 0 var(--lime-dark), 0 12px 24px -8px #00000059;
+  text-shadow: 0 1px 2px #0003;
+  justify-content: center;
+  align-items: center;
+  padding-block: 1.25rem;
+  padding-inline: 2rem;
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.75;
+  transition-property: transform, translate, scale, rotate;
+  transition-duration: 0.15s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  position: relative;
+}
+
+.btn-3d:active,
+.btn-3d-active:active,
+.active\:btn-3d-active:active {
+  transform: translateY(3px);
+}
+
+.dot-pattern {
+  background-image: radial-gradient(currentColor 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.section-rule {
+  margin-inline: auto;
+  border-radius: 9999px;
+  width: 5rem;
+  height: 0.25rem;
+  margin-top: 1rem;
+}

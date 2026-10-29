@@ -1,0 +1,6 @@
+{
+  "name": "Coleção Letrinha",
+  "description": "Mais de 400 páginas de atividades em PDF para crianças do 1º ao 9º ano: letra cursiva, leitura, coordenação motora. Pagamento único.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
